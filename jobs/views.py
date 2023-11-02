@@ -1,6 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 
 job_title = [
     'First Job',
@@ -17,7 +16,9 @@ def hello(request):
 
 
 def job_detail(request, id):
-    idx = int(id) - 1
+    if id == 0:
+        return redirect("/")
+    idx = id - 1
     return_html = f"<h1>{job_title[idx]}</h1> <h3> {job_description[idx]}"
 
     return HttpResponse(return_html)
