@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 job_title = [
     'First Job',
@@ -19,7 +20,8 @@ def job_list(request):
     list_of_jobs = "<lu>"
     for job in job_title:
         job_id = job_title.index(job) + 1
-        list_of_jobs += f"<li> <a href='job/{job_id}'> {job} </a> </li>"
+        job_detail_url = reverse('job_detail', args=(job_id, ))
+        list_of_jobs += f"<li> <a href='{job_detail_url}'> {job} </a> </li>"
 
     list_of_jobs += "</lu>"
     return HttpResponse(list_of_jobs)
@@ -27,7 +29,7 @@ def job_list(request):
 
 def job_detail(request, id):
     if id == 0:
-        return redirect("/")
+        return redirect(reverse('home'))
     idx = id - 1
     return_html = f"<h1>{job_title[idx]}</h1> <h3> {job_description[idx]}"
 
