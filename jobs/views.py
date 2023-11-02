@@ -4,9 +4,11 @@ from django.shortcuts import render
 
 # Create your views here.
 def hello(request):
-    return HttpResponse('Hello World!')
+    return HttpResponse('<h3>Hello World!<h3>')
 
 
 def job_detail(request, id):
-    return HttpResponse(f"{id}. Job Detail Page")
+    site = "https://google.com"
+
+    return HttpResponse(f"Visit Google from <a href={site} target='_blank'> here <a> ")
 
