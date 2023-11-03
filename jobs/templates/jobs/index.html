@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jobs</title>
+</head>
+<body>
+<ul>
+    {% for job in job_title %}
+        <a href="job/{{ forloop.counter }}"><h1>{{ job }}</h1></a>
+    {% endfor %}
+</ul>
+</body>
+</html>

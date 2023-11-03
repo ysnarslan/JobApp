@@ -36,14 +36,11 @@ def hello(request):
 
 
 def job_list(request):
-    list_of_jobs = "<lu>"
-    for job in job_title:
-        job_id = job_title.index(job) + 1
-        job_detail_url = reverse('job_detail', args=(job_id,))
-        list_of_jobs += f"<li> <a href='{job_detail_url}'> {job} </a> </li>"
 
-    list_of_jobs += "</lu>"
-    return HttpResponse(list_of_jobs)
+    context = {
+        'job_title': job_title,
+    }
+    return render(request, 'jobs/index.html', context)
 
 
 def job_detail(request, id):
