@@ -15,5 +15,9 @@
 <h1>Age: {{ age }}</h1>
 <h3>{{ first_list.0 }}</h3>
 <h3>{{ temp_object.x }}</h3>
+
+{% for x in first_list %}
+    <p>First: {{ x }}</p>
+{% endfor %}
 </body>
 </html>
