@@ -29,6 +29,7 @@ def hello(request):
     context = {'name': 'Yasin',
                'first_list': first_list,
                'temp_object': temp,
+               'age': 10,
                }
     return render(request, 'jobs/hello.html', context)
 
