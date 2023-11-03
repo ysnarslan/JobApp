@@ -30,6 +30,7 @@ def hello(request):
                'first_list': first_list,
                'temp_object': temp,
                'age': 10,
+               'is_authenticated': True,
                }
     return render(request, 'jobs/hello.html', context)
 
