@@ -52,8 +52,11 @@ def job_detail(request, id):
             return redirect(reverse('home'))
 
         idx = id - 1
-        return_html = f"<h1>{job_title[idx]}</h1> <h3> {job_description[idx]}"
-        return HttpResponse(return_html)
+        context = {
+            'job_title': job_title[idx],
+            'job_description': job_description[idx],
+        }
+        return render(request, 'jobs/job_detail.html', context)
 
     except:
         return HttpResponseNotFound('Not Found')
