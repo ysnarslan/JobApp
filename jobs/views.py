@@ -24,14 +24,13 @@ class TempClass:
 
 
 def hello(request):
-    template = loader.get_template('jobs/hello.html')
     first_list = ["alpha", "beta"]
     temp = TempClass()
     context = {'name': 'Yasin',
                'first_list': first_list,
                'temp_object': temp,
                }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'jobs/hello.html', context)
 
 
 def job_list(request):
