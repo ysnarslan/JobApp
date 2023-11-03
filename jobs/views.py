@@ -19,10 +19,20 @@ job_description = [
 # Create your views here.
 
 
+class TempClass:
+    x = 5
+
+
 def hello(request):
     template = loader.get_template('jobs/hello.html')
-    context = {}
+    first_list = ["alpha", "beta"]
+    temp = TempClass()
+    context = {'name': 'Yasin',
+               'first_list': first_list,
+               'temp_object': temp,
+               }
     return HttpResponse(template.render(context, request))
+
 
 def job_list(request):
     list_of_jobs = "<lu>"
