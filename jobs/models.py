@@ -19,3 +19,6 @@ class Job(models.Model):
         validators=[MinValueValidator(0)],
         help_text="",
     )
+
+    def __str__(self):
+        return self.job_title

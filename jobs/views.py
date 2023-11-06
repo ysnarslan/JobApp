@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect
 from django.template import loader
 from django.urls import reverse
 
+from jobs.models import Job
+
 job_title = [
     'First Job',
     'Second Job',
@@ -36,9 +38,10 @@ def hello(request):
 
 
 def job_list(request):
+    jobs = Job.objects.all()
 
     context = {
-        'job_title': job_title,
+        'jobs': jobs,
     }
     return render(request, 'jobs/index.html', context)
 
@@ -46,12 +49,11 @@ def job_list(request):
 def job_detail(request, id):
     try:
         if id == 0:
-            return redirect(reverse('home'))
+            return redirect(reverse('index'))
 
-        idx = id - 1
+        job = Job.objects.get(id=id)
         context = {
-            'job_title': job_title[idx],
-            'job_description': job_description[idx],
+            'job': job,
         }
         return render(request, 'jobs/job_detail.html', context)
 

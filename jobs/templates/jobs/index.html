@@ -6,8 +6,8 @@
 </head>
 <body>
 <ul>
-    {% for job in job_title %}
-        <a href="{% url 'job_detail' forloop.counter %}"><h1>{{ job }}</h1></a>
+    {% for job in jobs %}
+        <a href="{% url 'job_detail' job.id %}"><h1>{{ job.job_title }}</h1></a>
     {% endfor %}
 </ul>
 </body>

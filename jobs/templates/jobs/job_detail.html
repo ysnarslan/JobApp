@@ -8,7 +8,8 @@
 <a href={% url 'index' %}>
     <h2>Home</h2>
 </a>
-<h1>{{ job_title }}</h1>
-<h3> {{ job_description }} </h3>
+<h1>{{ job.job_title }}</h1>
+<h3> {{ job.job_description }} </h3>
+<h3>Job salary: {{ job.salary }}</h3>
 </body>
 </html>
