@@ -25,7 +25,9 @@ class Job(models.Model):
     )
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.job_title)
+        if not self.id:
+            self.slug = slugify(self.job_title)
+
         return super(Job, self).save(*args, **kwargs)
 
     def __str__(self):
