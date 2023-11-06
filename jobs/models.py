@@ -22,6 +22,8 @@ class Job(models.Model):
     )
     slug = models.SlugField(
         null=True,
+        unique=True,
+        max_length=40,
     )
 
     def save(self, *args, **kwargs):
