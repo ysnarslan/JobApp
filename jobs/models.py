@@ -1,5 +1,6 @@
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.utils.text import slugify
 
 
 # Create your models here.
@@ -19,6 +20,13 @@ class Job(models.Model):
         validators=[MinValueValidator(0)],
         help_text="",
     )
+    slug = models.SlugField(
+        null=True,
+    )
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.job_title)
+        return super(Job, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.job_title
