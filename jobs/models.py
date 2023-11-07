@@ -44,6 +44,13 @@ class Author(models.Model):
     )
 
 
+class Skill(models.Model):
+    name = models.CharField(
+        max_length=255,
+        help_text="",
+    )
+
+
 class Job(models.Model):
     job_title = models.CharField(
         max_length=255,
@@ -77,6 +84,10 @@ class Job(models.Model):
         to=Author,
         on_delete=models.CASCADE,
         null=True,
+    )
+    skill = models.ManyToManyField(
+        to=Skill,
+
     )
 
     def save(self, *args, **kwargs):
