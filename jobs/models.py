@@ -29,6 +29,21 @@ class Location(models.Model):
     )
 
 
+class Author(models.Model):
+    name = models.CharField(
+        max_length=255,
+        help_text="",
+    )
+    company = models.CharField(
+        max_length=255,
+        help_text="",
+    )
+    designation = models.CharField(
+        max_length=255,
+        help_text="",
+    )
+
+
 class Job(models.Model):
     job_title = models.CharField(
         max_length=255,
@@ -57,6 +72,11 @@ class Job(models.Model):
         Location,
         null=True,
         on_delete=models.CASCADE,
+    )
+    author = models.ForeignKey(
+        to=Author,
+        on_delete=models.CASCADE,
+        null=True,
     )
 
     def save(self, *args, **kwargs):
