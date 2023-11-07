@@ -4,6 +4,31 @@ from django.utils.text import slugify
 
 
 # Create your models here.
+
+
+class Location(models.Model):
+    street = models.CharField(
+        max_length=255,
+        help_text="",
+    )
+    city = models.CharField(
+        max_length=255,
+        help_text="",
+    )
+    state = models.CharField(
+        max_length=255,
+        help_text="",
+    )
+    country = models.CharField(
+        max_length=255,
+        help_text="",
+    )
+    zip = models.CharField(
+        max_length=255,
+        help_text="",
+    )
+
+
 class Job(models.Model):
     job_title = models.CharField(
         max_length=255,
@@ -27,6 +52,11 @@ class Job(models.Model):
     )
     expiry = models.DateField(
         null=True,
+    )
+    location = models.OneToOneField(
+        Location,
+        null=True,
+        on_delete=models.CASCADE,
     )
 
     def save(self, *args, **kwargs):
