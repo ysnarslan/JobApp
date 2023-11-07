@@ -25,6 +25,9 @@ class Job(models.Model):
         unique=True,
         max_length=40,
     )
+    expiry = models.DateField(
+        null=True,
+    )
 
     def save(self, *args, **kwargs):
         if not self.id:
