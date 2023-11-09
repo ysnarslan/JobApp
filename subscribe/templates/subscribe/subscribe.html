@@ -7,8 +7,33 @@
 <body>
 <form method="post">
     {% csrf_token %}
-    {{ subscribe_form.as_p }}
-    <input type="submit" value="Submit">
+
+    <div class="subscribe_field">
+        {{ subscribe_form.first_name.errors }}
+        <label for={{ subscribe_form.first_name.id_for_label }}>{{ subscribe_form.first_name.label }}</label>
+{#        <input type="text" id="f_name" name="firstname" placeholder="Your first name">#}
+        {{ subscribe_form.first_name }}
+
+    </div>
+    <div class="subscribe_field">
+        {{ subscribe_form.last_name.errors }}
+        <label for={{ subscribe_form.last_name.id_for_label }}>{{ subscribe_form.last_name.label }}</label>
+        {{ subscribe_form.last_name }}
+{#        <input type="text" id="l_name" name="lastname" placeholder="Your last name">#}
+    </div>
+    <div class="subscribe_field">
+        {{ subscribe_form.email.errors }}
+        <label for={{ subscribe_form.email.id_for_label }}>{{ subscribe_form.email.label }}</label>
+        {{ subscribe_form.email }}
+{#        <input type="text" id="f_name" name="firstname" placeholder="Your first name">#}
+    </div>
+    <p>{{ subscribe_form.email.email_name }}</p>
+
+
+{#    {{ subscribe_form.as_p }}#}
+{#    <input type="submit" value="Submit">#}
+
+
 {#    {% csrf_token %}#}
 {##}
 {#    {% if empty_email_error %}#}
