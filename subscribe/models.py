@@ -9,6 +9,6 @@ class Subscribe(models.Model):
     last_name = models.CharField(
         max_length=255,
     )
-    email = models.CharField(
+    email = models.EmailField(
         max_length=255,
     )
