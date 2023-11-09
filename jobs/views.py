@@ -46,12 +46,12 @@ def job_list(request):
     return render(request, 'jobs/index.html', context)
 
 
-def job_detail(request, id):
+def job_detail(request, slug):
     try:
         if id == 0:
             return redirect(reverse('index'))
 
-        job = Job.objects.get(id=id)
+        job = Job.objects.get(slug=slug)
         context = {
             'job': job,
         }
