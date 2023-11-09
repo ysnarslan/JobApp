@@ -11,12 +11,13 @@
     {% for field in subscribe_form %}
         <div>
             {{ field.errors }}
-            {{ field.label_tag }}
+            <p>{{ field.label_tag }}
             {#            <label for={{ field.id_for_label }}>{{ field.label }}</label>#}
             {{ field }}
             {% if field.help_text %}
             	{{ field.help_text }}
             {% endif %}
+            </p>
         </div>
     {% endfor %}
 
