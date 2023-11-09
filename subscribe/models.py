@@ -1,5 +1,9 @@
 from django.db import models
 
+NEWSLETTER_OPTION = [
+    ("W", "Weekly"),
+    ("M", "Monthly"),
+]
 
 # Create your models here.
 class Subscribe(models.Model):
@@ -11,4 +15,9 @@ class Subscribe(models.Model):
     )
     email = models.EmailField(
         max_length=255,
+    )
+    option = models.CharField(
+        max_length=2,
+        choices=NEWSLETTER_OPTION,
+        default="M",
     )
