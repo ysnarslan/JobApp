@@ -1,75 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Subscribe Page</title>
-</head>
-<body>
-<form method="post">
-    {% csrf_token %}
+{% extends 'base.html' %}
 
-    {% for field in subscribe_form %}
-        <div>
-            {{ field.errors }}
-            <p>{{ field.label_tag }}
-            {#            <label for={{ field.id_for_label }}>{{ field.label }}</label>#}
-            {{ field }}
-            {% if field.help_text %}
-            	{{ field.help_text }}
-            {% endif %}
-            </p>
-        </div>
-    {% endfor %}
+{% block title %}
+    FlixCareer | Subscribe
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <form class="email-form" method="post">
+            {% csrf_token %}
+            {{ subscribe_form.as_p }}
+            <button class="email-submit">Submit</button>
+        </form>
+    </div>
+
+</section>
+{% endblock %}
 
 
-    {#    <div class="subscribe_field">#}
-    {#        {{ subscribe_form.first_name.errors }}#}
-    {#        <label for={{ subscribe_form.first_name.id_for_label }}>{{ subscribe_form.first_name.label }}</label>#}
-    {#        <input type="text" id="f_name" name="firstname" placeholder="Your first name">#}
-    {#        {{ subscribe_form.first_name }}#}
-    {##}
-    {#    </div>#}
-    {#    <div class="subscribe_field">#}
-    {#        {{ subscribe_form.last_name.errors }}#}
-    {#        <label for={{ subscribe_form.last_name.id_for_label }}>{{ subscribe_form.last_name.label }}</label>#}
-    {#        {{ subscribe_form.last_name }}#}
-    {#        <input type="text" id="l_name" name="lastname" placeholder="Your last name">#}
-    {#    </div>#}
-    {#    <div class="subscribe_field">#}
-    {#        {{ subscribe_form.email.errors }}#}
-    {#        <label for={{ subscribe_form.email.id_for_label }}>{{ subscribe_form.email.label }}</label>#}
-    {#        {{ subscribe_form.email }}#}
-    {#        <input type="text" id="f_name" name="firstname" placeholder="Your first name">#}
-    {#    </div>#}
 
-
-    {#    {{ subscribe_form.as_p }}#}
-    {#    <input type="submit" value="Submit">#}
-
-
-    {#    {% csrf_token %}#}
-    {##}
-    {#    {% if empty_email_error %}#}
-    {#    	<p>{{ empty_email_error }}</p>#}
-    {#    {% endif %}#}
-    {##}
-    {#    <label for="f_name">First Name: </label>#}
-    {#    <input type="text" id="f_name" name="firstname" placeholder="Your First Name" required>#}
-    {#    <br>#}
-    {#    <br>#}
-    {##}
-    {#    <label for="l_name">Last Name: </label>#}
-    {#    <input type="text" id="l_name" name="lastname" placeholder="Your First Name" required>#}
-    {#    <br>#}
-    {#    <br>#}
-    {##}
-    {#    <label for="email">Email: </label>#}
-    {#    <input type="email" id="email" name="email" placeholder="Your Email" required>#}
-    {#    <br>#}
-    {#    <br>#}
-    {##}
-    <input type="submit" value="Submit">
-</form>
-
-</body>
-</html>

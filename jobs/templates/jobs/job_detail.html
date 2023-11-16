@@ -1,15 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Job Detail</title>
-</head>
-<body>
-<a href={% url 'index' %}>
-    <h2>Home</h2>
-</a>
-<h1>{{ job.job_title }}</h1>
-<h3> {{ job.job_description }} </h3>
-<h3>Job salary: {{ job.salary }}</h3>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+    FlixCareers | {{ job.job_title }}
+{% endblock %}
+
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="view-post">
+                <h1 class="jobtitle">
+                    {{ job.job_title }}
+                </h1>
+                <p class="location it">Location: <span>{{ job.location.city }}</span></p>
+                <p class="status it">Type: <span>{{ job.job_type }}</span></p>
+                <p class="budget it">Salary: <span>{{ job.salary }}</span></p>
+                <div class="desc">
+                    <p class="details">
+                        {{ job.job_description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
