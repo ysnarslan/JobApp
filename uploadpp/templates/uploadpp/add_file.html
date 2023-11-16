@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Your File</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ upload_form.as_p }}
+    <button type="submit">Upload</button>
+</form>
+
+{% if saved_object %}
+    <h2>Upload Successful: {{ saved_object.file.url }}</h2>
+    <h2>File Description: {{ saved_object.description }}</h2>
+{% endif %}
+</body>
+</html>
