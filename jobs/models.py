@@ -52,6 +52,11 @@ class Skill(models.Model):
 
 
 class Job(models.Model):
+    JOB_TYPE_CHOICES = [
+        ('Full Time', 'Full Time'),
+        ('Part Time', 'Part Time'),
+        ('Internship', 'Internship'),
+    ]
     job_title = models.CharField(
         max_length=255,
         help_text="",
@@ -87,7 +92,11 @@ class Job(models.Model):
     )
     skill = models.ManyToManyField(
         to=Skill,
-
+    )
+    job_type = models.CharField(
+        choices=JOB_TYPE_CHOICES,
+        max_length=255,
+        null=False,
     )
 
     def save(self, *args, **kwargs):
