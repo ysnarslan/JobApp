@@ -1,6 +1,5 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
-
 from subscribe.models import Subscribe
 
 
@@ -14,9 +13,9 @@ class SubscribeForm(forms.ModelForm):
             "last_name": _("Last Name:"),
             "email": _("E-mail"),
         }
-        help_texts = {
-            "first_name": _("Enter your first name. (Only character)")
-        }
+        # help_texts = {
+        #     "first_name": _("Enter your first name. (Only character)")
+        # }
         error_messages = {
             "first_name": {
                 "required": _("You cannot move forward without first name")
