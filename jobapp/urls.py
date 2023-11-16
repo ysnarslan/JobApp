@@ -23,5 +23,5 @@ urlpatterns = [path('admin/', admin.site.urls),
                path('', include('jobs.urls')),
                path('', include('subscribe.urls')),
                path('uploads/', include('uploadpp.urls'))
-               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
-              + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # \
+# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
